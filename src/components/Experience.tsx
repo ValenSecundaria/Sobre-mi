@@ -29,58 +29,47 @@ interface Education {
 }
 
 const workExperience: WorkExperience[] = [
-  {
-    title: "Desarrollador Full Stack",
-    company: "Tech Solutions Inc.",
-    location: "Ciudad, País",
-    period: "2023 - Presente",
-    type: "Tiempo Completo",
-    description:
-      "Desarrollo de aplicaciones web completas utilizando React, Node.js y PostgreSQL. Implementación de APIs RESTful y optimización de bases de datos.",
-    technologies: ["React", "Node.js", "PostgreSQL", "Docker", "AWS"],
-  },
-  {
-    title: "Desarrollador Frontend",
-    company: "Digital Agency",
-    location: "Ciudad, País",
-    period: "2022 - 2023",
-    type: "Tiempo Completo",
-    description:
-      "Creación de interfaces de usuario responsivas y optimizadas. Colaboración con equipos de diseño UX/UI para implementar experiencias de usuario excepcionales.",
-    technologies: ["React", "TypeScript", "CSS3", "Figma"],
-  },
-  {
-    title: "Desarrollador Junior",
-    company: "StartUp Innovadora",
-    location: "Ciudad, País",
-    period: "2021 - 2022",
-    type: "Tiempo Completo",
-    description:
-      "Desarrollo de funcionalidades para plataforma web. Participación en code reviews y implementación de mejores prácticas de desarrollo.",
-    technologies: ["JavaScript", "HTML5", "CSS3", "Git"],
-  },
+  //{
+  //  title: "Desarrollador Junior",
+  //  company: "StartUp Innovadora",
+  //  location: "Ciudad, País",
+  //  period: "2021 - 2022",
+  //  type: "Tiempo Completo",
+  //    "Desarrollo de funcionalidades para plataforma web. Participación en code reviews y implementación de mejores prácticas de desarrollo.",
+  //  technologies: ["JavaScript", "HTML5", "CSS3", "Git"],
+  //},
 ]
 
 const education: Education[] = [
   {
-    degree: "Ingeniería en Sistemas Computacionales",
+    degree: "Estudiante en Sistemas Computacionales",
     institution: "Universidad Tecnológica",
-    location: "Ciudad, País",
-    period: "2018 - 2022",
-    type: "Licenciatura",
+    location: "Bahia Blanca, Argentina",
+    period: "2022 - 2025",
+    type: "Ingenieria",
     description:
-      "Especialización en desarrollo de software, bases de datos y arquitectura de sistemas. Proyecto de tesis sobre aplicaciones web escalables.",
-    achievements: ["Promedio: 9.2/10", "Mención Honorífica", "Mejor Proyecto de Tesis"],
+      "Especialización en Ingenieria de software, sistemas, bases de datos y arquitectura de sistemas.",
+    achievements: ["Actualmente 4to año de Ingenieria, con carrera al día!"],
   },
   {
-    degree: "Técnico en Programación",
-    institution: "Instituto Técnico Superior",
-    location: "Ciudad, País",
-    period: "2016 - 2018",
-    type: "Técnico",
+    degree: "Bachiller de Secundaria",
+    institution: "Escuela De Educación Secundaria N°2 “Fermin González Ancalao”, Punta Alta. ",
+    location: "Punta Alta, Argentina",
+    period: "2016 - 2021",
+    type: "Estudiante",
     description:
-      "Fundamentos de programación, algoritmos y estructuras de datos. Desarrollo de aplicaciones básicas en múltiples lenguajes.",
-    achievements: ["Primer lugar en concurso de programación", "Certificado de excelencia académica"],
+      "Estudiante de secundaria basica, con especialización en la rama de ciencias naturales",
+    achievements: ["Ninguno"],
+  },
+  {
+    degree: "Escuela de educacion Primaria",
+    institution: "Escuela De Educación Primaria N°23 “Dr. Ricardo Gutiérrez”, Punta Alta.",
+    location: "Punta Alta, Argentina",
+    period: "2010 - 2015",
+    type: "Estudiante",
+    description:
+      "Estudiante de primaria basica",
+    achievements: ["Ninguno"],
   },
 ]
 

@@ -10,53 +10,12 @@ const certifications = [
   {
     title: "Computación Cuántica Fundamentals",
     issuer: "IBM Quantum Network",
-    date: "2023",
+    date: "2025",
     description:
-      "Certificación en fundamentos de computación cuántica, algoritmos cuánticos y programación con Qiskit.",
-    credentialUrl: "https://www.credly.com/badges/quantum-cert",
-    skills: ["Qiskit", "Algoritmos Cuánticos", "Física Cuántica"],
-  },
-  {
-    title: "React Developer Professional",
-    issuer: "Meta (Facebook)",
-    date: "2023",
-    description:
-      "Certificación avanzada en desarrollo con React, incluyendo hooks, context API y optimización de rendimiento.",
-    credentialUrl: "https://www.coursera.org/account/accomplishments/certificate/react-cert",
-    skills: ["React", "JavaScript", "Frontend Development"],
-  },
-  {
-    title: "Node.js Application Development",
-    issuer: "OpenJS Foundation",
-    date: "2022",
-    description: "Certificación en desarrollo de aplicaciones backend con Node.js, Express y bases de datos.",
-    credentialUrl: "https://openjsf.org/certification/nodejs-cert",
-    skills: ["Node.js", "Express", "Backend Development"],
-  },
-  {
-    title: "AWS Cloud Practitioner",
-    issuer: "Amazon Web Services",
-    date: "2022",
-    description: "Certificación fundamental en servicios de nube de AWS y mejores prácticas de arquitectura.",
-    credentialUrl: "https://aws.amazon.com/certification/certified-cloud-practitioner/",
-    skills: ["AWS", "Cloud Computing", "DevOps"],
-  },
-  {
-    title: "Database Design and Programming",
-    issuer: "Oracle",
-    date: "2021",
-    description: "Certificación en diseño de bases de datos relacionales y programación SQL avanzada.",
-    credentialUrl: "https://education.oracle.com/database-design-programming",
-    skills: ["SQL", "Database Design", "Oracle"],
-  },
-  {
-    title: "Git Version Control",
-    issuer: "GitHub",
-    date: "2021",
-    description: "Certificación en control de versiones con Git y colaboración en proyectos de software.",
-    credentialUrl: "https://github.com/certifications/git-cert",
-    skills: ["Git", "GitHub", "Version Control"],
-  },
+      "Certificación en fundamentos de computación cuántica, algoritmos cuánticos y mas.",
+    credentialUrl: "/certificadoValenGemetro.pdf",
+    skills: ["Qbits", "Algoritmos Cuánticos"],
+  } 
 ]
 
 export default function Certifications() {

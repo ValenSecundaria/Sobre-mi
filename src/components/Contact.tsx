@@ -17,7 +17,7 @@ import {
   Link,
   useToast,
 } from "@chakra-ui/react"
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGithub, FaLinkedin, FaTwitter, FaPaperPlane } from "react-icons/fa"
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGithub, FaLinkedin, FaPaperPlane } from "react-icons/fa"
 import { motion } from "framer-motion"
 import { useState, type ChangeEvent, type FormEvent } from "react"
 import type { IconType } from "react-icons"
@@ -133,95 +133,88 @@ export default function Contact() {
   const toast = useToast()
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }))
-  }
+        const { name, value } = e.target
+        setFormData((prev) => ({
+          ...prev,
+          [name]: value,
+        }))
+      }
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+      const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+      e.preventDefault()
+      setIsSubmitting(true)
 
-        try {
-            // Crear el enlace mailto
+      try {
             const subject = encodeURIComponent(`Contacto desde portafolio - ${formData.name}`)
             const body = encodeURIComponent(`
-        Nombre: ${formData.name}
-        Email: ${formData.email}
+            Nombre: ${formData.name}
+            Email: ${formData.email}
 
-        Mensaje:
-        ${formData.message}
-      `)
+            Mensaje:
+            ${formData.message}
+            `)
 
-      const mailtoLink = `mailto:tu-email@ejemplo.com?subject=${subject}&body=${body}`
-      window.location.href = mailtoLink
+        const mailtoLink = `mailto:gemetrovalentin@hotmail.com?subject=${subject}&body=${body}`
+        window.location.href = mailtoLink
 
-      toast({
-        title: "Mensaje enviado",
-        description: "Se abrirá tu cliente de correo para enviar el mensaje.",
-        status: "success",
-        duration: 5000,
-        isClosable: true,
-      })
+        toast({
+          title: "Mensaje enviado",
+          description: "Se abrirá tu cliente de correo para enviar el mensaje.",
+          status: "success",
+          duration: 5000,
+          isClosable: true,
+        })
 
-      // Limpiar formulario
-      setFormData({ name: "", email: "", message: "" })
-    } catch (error) {
-      toast({
-        title: "Error",
-        description: "Hubo un problema al procesar tu mensaje.",
-        status: "error",
-        duration: 5000,
-        isClosable: true,
-    })
-    console.log(error)
-    } finally {
-      setIsSubmitting(false)
+        setFormData({ name: "", email: "", message: "" })
+      } catch (error) {
+        toast({
+          title: "Error",
+          description: "Hubo un problema al procesar tu mensaje.",
+          status: "error",
+          duration: 5000,
+          isClosable: true,
+        })
+        console.error(error)
+      } finally {
+        setIsSubmitting(false)
+      }
     }
-  }
 
-  const contactInfo: ContactInfo[] = [
-    {
-      icon: FaEnvelope,
-      label: "Email",
-      value: "tu-email@ejemplo.com",
-      link: "mailto:tu-email@ejemplo.com",
-    },
-    {
-      icon: FaPhone,
-      label: "Teléfono",
-      value: "+1 (555) 123-4567",
-      link: "tel:+15551234567",
-    },
-    {
-      icon: FaMapMarkerAlt,
-      label: "Ubicación",
-      value: "Ciudad, País",
-      link: null,
-    },
-  ]
+    const contactInfo: ContactInfo[] = [
+      {
+        icon: FaEnvelope,
+        label: "Email",
+        value: "gemetrovalentin@hotmail.com",
+        link: "mailto:gemetrovalentin@hotmail.com",
+      },
+      {
+        icon: FaPhone,
+        label: "Teléfono",
+        value: "+54 2932 404925",
+        link: "tel:+5492932404925", // formato sin espacios ni paréntesis para tel:
+      },
+      {
+        icon: FaMapMarkerAlt,
+        label: "Ubicación",
+        value: "Argentina, Bahía Blanca, Provincia de Buenos Aires",
+        link: null,
+      },
+    ] 
 
   const socialLinks: SocialLink[] = [
     {
       icon: FaGithub,
       label: "GitHub",
-      url: "https://github.com/tu-usuario",
+      url: "https://github.com/ValenSecundaria?tab=repositories",
       color: "#181717",
     },
     {
       icon: FaLinkedin,
       label: "LinkedIn",
-      url: "https://linkedin.com/in/tu-perfil",
+      url: "https://www.linkedin.com/in/valentin-gemetro-59808a332/",
       color: "#0A66C2",
     },
-    {
-      icon: FaTwitter,
-      label: "Twitter",
-      url: "https://twitter.com/tu-usuario",
-      color: "#1DA1F2",
-    },
+  
   ]
 
   return (
@@ -564,7 +557,7 @@ export default function Contact() {
           borderColor="gray.200"
         >
           <MotionBox whileHover={{ scale: 1.05 }} transition={{ duration: 0.2 }}>
-            <Text color="gray.600">© 2024 [Tu Nombre]. Todos los derechos reservados.</Text>
+            <Text color="gray.600">© 2024 Valentin Gemetro. Todos los derechos reservados.</Text>
             <Text color="gray.500" fontSize="sm" mt={2}>
               Hecho con ❤️ usando React y Chakra UI
             </Text>

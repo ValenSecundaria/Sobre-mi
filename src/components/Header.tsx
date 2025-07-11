@@ -65,7 +65,7 @@ export default function Header() {
           <MotionBox initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ duration: 0.5, delay: 0.5 }}>
             <Avatar
               size="2xl"
-              src="/placeholder.svg?height=200&width=200"
+              src="/mi-foto.jpeg"
               border="4px solid rgba(255, 255, 255, 0.3)"
               shadow="2xl"
               width={{ base: "150px", md: "200px" }}
@@ -81,10 +81,10 @@ export default function Header() {
               transition={{ duration: 0.6, delay: 0.7 }}
             >
               <Heading size="2xl" textAlign={{ base: "center", lg: "left" }} mb={2}>
-                ¡Hola! Soy [Tu Nombre]
+                ¡Hola! Soy Valentin Gemetro
               </Heading>
               <Text fontSize="xl" color="whiteAlpha.900" textAlign={{ base: "center", lg: "left" }}>
-                Desarrollador Full Stack & Ingeniero de Software
+                Desarrollador Full Stack & Estudiante de Ingenieria de Software
               </Text>
             </MotionBox>
 
@@ -123,7 +123,7 @@ export default function Header() {
                 >
                   Descargar CV
                 </Button>
-                <Link href="https://github.com/tu-usuario" isExternal>
+                <Link href="https://github.com/ValenSecundaria?tab=repositories" isExternal>
                   <Button
                     size="lg"
                     variant="outline"
@@ -135,7 +135,7 @@ export default function Header() {
                     GitHub
                   </Button>
                 </Link>
-                <Link href="https://linkedin.com/in/tu-perfil" isExternal>
+                <Link href="https://www.linkedin.com/in/valentin-gemetro-59808a332/" isExternal>
                   <Button
                     size="lg"
                     variant="outline"

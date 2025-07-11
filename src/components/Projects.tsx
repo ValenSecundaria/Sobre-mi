@@ -23,54 +23,21 @@ const projects = [
   {
     title: "E-Commerce Full Stack",
     description:
-      "Plataforma de comercio electrónico completa con carrito de compras, sistema de pagos y panel de administración.",
-    technologies: ["React", "Node.js", "Express", "PostgreSQL", "Prisma"],
-    githubUrl: "https://github.com/tu-usuario/ecommerce-project",
-    liveUrl: "https://tu-ecommerce.vercel.app",
-    image: "/placeholder.svg?height=200&width=300",
+      "Plataforma de comercio electrónico completa con carrito de compras, sistema de pagos , panel de administración, uso y proovedor de API's externas.",
+    technologies: ["React","TypeScript","Node.js", "Next", "PostgreSQL", "Prisma"],
+    githubUrl: "https://github.com/ValenSecundaria/Tienda-River",
+    liveUrl: "https://proyecto-2-gemetro-didier-c6ni.vercel.app/",
+    image: "river-logo.png",
   },
   {
-    title: "Sistema de Gestión de Tareas",
+    title: "Sistema de pedidos basica",
     description:
-      "Aplicación web para gestión de proyectos y tareas con funcionalidades de colaboración en tiempo real.",
-    technologies: ["Next.js", "TypeScript", "MySQL", "Socket.io"],
-    githubUrl: "https://github.com/tu-usuario/task-manager",
-    liveUrl: "https://task-manager-demo.vercel.app",
-    image: "/placeholder.svg?height=200&width=300",
-  },
-  {
-    title: "API REST para Blog",
-    description:
-      "API robusta para un sistema de blog con autenticación JWT, CRUD completo y documentación con Swagger.",
-    technologies: ["Node.js", "Express", "MongoDB", "JWT", "Swagger"],
-    githubUrl: "https://github.com/tu-usuario/blog-api",
-    liveUrl: null,
-    image: "/placeholder.svg?height=200&width=300",
-  },
-  {
-    title: "Dashboard Analítico",
-    description: "Dashboard interactivo para visualización de datos con gráficos dinámicos y filtros avanzados.",
-    technologies: ["React", "Chart.js", "Python", "FastAPI"],
-    githubUrl: "https://github.com/tu-usuario/analytics-dashboard",
-    liveUrl: "https://analytics-demo.vercel.app",
-    image: "/placeholder.svg?height=200&width=300",
-  },
-  {
-    title: "Aplicación de Clima",
-    description: "App del clima con geolocalización, pronósticos extendidos y diseño responsivo.",
-    technologies: ["React", "OpenWeather API", "CSS3"],
-    githubUrl: "https://github.com/tu-usuario/weather-app",
-    liveUrl: "https://weather-app-demo.vercel.app",
-    image: "/placeholder.svg?height=200&width=300",
-  },
-  {
-    title: "Sistema de Reservas",
-    description: "Plataforma para reservas de servicios con calendario interactivo y notificaciones por email.",
-    technologies: ["Next.js", "Prisma", "PostgreSQL", "Nodemailer"],
-    githubUrl: "https://github.com/tu-usuario/booking-system",
-    liveUrl: "https://booking-demo.vercel.app",
-    image: "/placeholder.svg?height=200&width=300",
-  },
+      "Aplicación web para toma de pedidos en una tienda de comida y tareas con funcionalidades de dichos pedidos.",
+    technologies: ["Node.js", "TypeScript", "Express"],
+    githubUrl: "https://github.com/ValenSecundaria/BurgerXplosion",
+    liveUrl: "https://burgerxplosion-1.onrender.com",
+    image: "/icon.ico",
+  }
 ]
 
 export default function Projects() {
