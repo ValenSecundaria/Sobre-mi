@@ -8,11 +8,16 @@ const MotionBox = motion(Box)
 const MotionFlex = motion(Flex)
 
 export default function Header() {
-  const handleDownloadCV = () => {
-    // Aquí puedes agregar la lógica para descargar el CV
-    alert("Funcionalidad de descarga de CV - Agregar archivo PDF")
-  }
 
+  const handleDownloadCV = () => {
+    const pdfUrl = '/CV-ValenGemetro.pdf';  // ruta desde la carpeta public
+    const link = document.createElement('a');
+    link.href = pdfUrl;
+    link.download = 'CV-ValenGemetro.pdf';  // nombre para la descarga
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
   return (
     <Box
       id="header"

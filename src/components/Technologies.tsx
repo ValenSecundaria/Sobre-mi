@@ -1,6 +1,6 @@
 "use client"
 
-import { Box, Container, Heading, Text, SimpleGrid, VStack, Icon } from "@chakra-ui/react"
+import { Box, Container, Heading, Text, VStack, Icon } from "@chakra-ui/react"
 import {
   FaHtml5,
   FaCss3Alt,
@@ -18,7 +18,7 @@ import { motion } from "framer-motion"
 import type { IconType } from "react-icons"
 
 const MotionBox = motion(Box)
-const MotionSimpleGrid = motion(SimpleGrid)
+const MotionDiv = motion.div
 
 interface TechItem {
   name: string
@@ -82,64 +82,6 @@ const technologies: TechCategory[] = [
     ],
   },
 ]
-
-// Variantes de animación para las tarjetas
-const cardVariants = {
-  hidden: {
-    opacity: 0,
-    y: 50,
-    scale: 0.8,
-    rotateY: -15,
-  },
-  visible: (index: number) => ({
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    rotateY: 0,
-    transition: {
-      delay: index * 0.1,
-      duration: 0.6,
-      type: "spring",
-      stiffness: 100,
-      damping: 12,
-    },
-  }),
-  hover: {
-    scale: 1.08,
-    y: -8,
-    rotateY: 5,
-    boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
-    transition: {
-      duration: 0.3,
-      type: "spring",
-      stiffness: 300,
-    },
-  },
-}
-
-// Variantes para los iconos
-const iconVariants = {
-  hover: {
-    scale: 1.2,
-    rotate: [0, -10, 10, 0],
-    transition: {
-      duration: 0.5,
-      type: "spring",
-    },
-  },
-}
-
-// Variantes para el contenedor de categorías
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.3,
-    },
-  },
-}
 
 export default function Technologies() {
   return (
@@ -214,7 +156,12 @@ export default function Technologies() {
           </MotionBox>
         </MotionBox>
 
-        <MotionBox variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+        <MotionDiv
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6, staggerChildren: 0.2, delayChildren: 0.3 }}
+          viewport={{ once: true }}
+        >
           <VStack spacing={12}>
             {technologies.map((category, categoryIndex) => (
               <MotionBox
@@ -236,19 +183,46 @@ export default function Technologies() {
                   </Heading>
                 </MotionBox>
 
-                <MotionSimpleGrid
-                  columns={{ base: 2, md: 3, lg: 4, xl: 5 }}
-                  spacing={6}
-                  initial="hidden"
-                  whileInView="visible"
+                <MotionDiv
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
+                    gap: "1.5rem",
+                  }}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ duration: 0.6, staggerChildren: 0.1 }}
                   viewport={{ once: true }}
                 >
                   {category.items.map((tech, index) => (
                     <MotionBox
                       key={tech.name}
-                      custom={index}
-                      variants={cardVariants}
-                      whileHover="hover"
+                      initial={{
+                        opacity: 0,
+                        y: 50,
+                        scale: 0.8,
+                        rotateY: -15,
+                      }}
+                      whileInView={{
+                        opacity: 1,
+                        y: 0,
+                        scale: 1,
+                        rotateY: 0,
+                      }}
+                      whileHover={{
+                        scale: 1.08,
+                        y: -8,
+                        rotateY: 5,
+                        boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
+                      }}
+                      transition={{
+                        duration: 0.6,
+                        delay: index * 0.1,
+                        type: "spring",
+                        stiffness: 100,
+                        damping: 12,
+                      }}
+                      viewport={{ once: true }}
                       style={{ perspective: "1000px" }}
                     >
                       <VStack
@@ -281,7 +255,16 @@ export default function Technologies() {
                           transition={{ duration: 0.6 }}
                         />
 
-                        <MotionBox variants={iconVariants}>
+                        <MotionBox
+                          whileHover={{
+                            scale: 1.2,
+                            rotate: [0, -10, 10, 0],
+                          }}
+                          transition={{
+                            duration: 0.5,
+                            type: "spring",
+                          }}
+                        >
                           {tech.icon ? (
                             <Icon as={tech.icon} boxSize={8} color={tech.color} />
                           ) : (
@@ -311,11 +294,11 @@ export default function Technologies() {
                       </VStack>
                     </MotionBox>
                   ))}
-                </MotionSimpleGrid>
+                </MotionDiv>
               </MotionBox>
             ))}
           </VStack>
-        </MotionBox>
+        </MotionDiv>
       </Container>
     </Box>
   )

@@ -6,7 +6,7 @@ import { motion } from "framer-motion"
 import type { IconType } from "react-icons"
 
 const MotionBox = motion(Box)
-const MotionVStack = motion(VStack)
+
 
 interface WorkExperience {
   title: string
@@ -91,84 +91,53 @@ interface ExperienceItemProps {
   isWork: boolean
 }
 
-// Variantes de animación para las tarjetas de experiencia
-const cardVariants = {
-  hidden: {
-    opacity: 0,
-    x: -100,
-    scale: 0.8,
-  },
-  visible: (index: number) => ({
-    opacity: 1,
-    x: 0,
-    scale: 1,
-    transition: {
-      delay: index * 0.2,
-      duration: 0.8,
-      type: "spring",
-      stiffness: 100,
-      damping: 15,
-    },
-  }),
-  hover: {
-    scale: 1.02,
-    x: 10,
-    transition: {
-      duration: 0.3,
-      type: "spring",
-      stiffness: 300,
-    },
-  },
-}
-
-// Variantes para los iconos
-const iconVariants = {
-  hidden: { scale: 0, rotate: -180 },
-  visible: {
-    scale: 1,
-    rotate: 0,
-    transition: {
-      duration: 0.6,
-      type: "spring",
-      stiffness: 200,
-    },
-  },
-  hover: {
-    scale: 1.2,
-    rotate: 360,
-    transition: {
-      duration: 0.5,
-    },
-  },
-}
-
-// Variantes para las líneas conectoras
-const lineVariants = {
-  hidden: { scaleY: 0 },
-  visible: {
-    scaleY: 1,
-    transition: {
-      duration: 0.8,
-      ease: "easeInOut",
-    },
-  },
-}
-
 function ExperienceItem({ item, icon, index, isWork }: ExperienceItemProps) {
   const workItem = item as WorkExperience
   const eduItem = item as Education
 
   return (
     <MotionBox
-      custom={index}
-      variants={cardVariants}
-      initial="hidden"
-      whileInView="visible"
-      whileHover="hover"
+      initial={{
+        opacity: 0,
+        x: -100,
+        scale: 0.8,
+      }}
+      whileInView={{
+        opacity: 1,
+        x: 0,
+        scale: 1,
+      }}
+      whileHover={{
+        scale: 1.02,
+        x: 10,
+      }}
+      transition={{
+        duration: 0.8,
+        delay: index * 0.2,
+        type: "spring",
+        stiffness: 100,
+        damping: 15,
+      }}
       viewport={{ once: true }}
     >
       <HStack align="start" spacing={6}>
-        <MotionBox variants={iconVariants} whileHover="hover">
+        <MotionBox
+          initial={{ scale: 0, rotate: -180 }}
+          whileInView={{
+            scale: 1,
+            rotate: 0,
+          }}
+          whileHover={{
+            scale: 1.2,
+            rotate: 360,
+          }}
+          transition={{
+            duration: 0.6,
+            type: "spring",
+            stiffness: 200,
+          }}
+          viewport={{ once: true }}
+        >
           <Box
             p={3}
             bg="brand.500"
@@ -364,7 +333,7 @@ export default function Experience() {
           </MotionBox>
         </MotionBox>
 
-        <MotionVStack spacing={16}>
+        <VStack spacing={16}>
           {/* Experiencia Laboral */}
           <Box w="100%">
             <MotionBox
@@ -392,9 +361,14 @@ export default function Experience() {
                     <MotionBox
                       ml={6}
                       mt={6}
-                      variants={lineVariants}
-                      initial="hidden"
-                      whileInView="visible"
+                      initial={{ scaleY: 0 }}
+                      whileInView={{
+                        scaleY: 1,
+                      }}
+                      transition={{
+                        duration: 0.8,
+                        ease: "easeInOut",
+                      }}
                       viewport={{ once: true }}
                       style={{ originY: 0 }}
                     >
@@ -433,9 +407,14 @@ export default function Experience() {
                     <MotionBox
                       ml={6}
                       mt={6}
-                      variants={lineVariants}
-                      initial="hidden"
-                      whileInView="visible"
+                      initial={{ scaleY: 0 }}
+                      whileInView={{
+                        scaleY: 1,
+                      }}
+                      transition={{
+                        duration: 0.8,
+                        ease: "easeInOut",
+                      }}
                       viewport={{ once: true }}
                       style={{ originY: 0 }}
                     >
@@ -446,7 +425,7 @@ export default function Experience() {
               ))}
             </VStack>
           </Box>
-        </MotionVStack>
+        </VStack>
       </Container>
     </Box>
   )

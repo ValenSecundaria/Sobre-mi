@@ -21,6 +21,7 @@ import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGithub, FaLinkedin, FaTwitter, F
 import { motion } from "framer-motion"
 import { useState, type ChangeEvent, type FormEvent } from "react"
 import type { IconType } from "react-icons"
+import type { Variants } from "framer-motion"
 
 const MotionBox = motion(Box)
 const MotionSimpleGrid = motion(SimpleGrid)
@@ -45,8 +46,7 @@ interface SocialLink {
   color: string
 }
 
-// Variantes de animación para el formulario
-const formVariants = {
+const formVariants: Variants = {
   hidden: { opacity: 0, x: 50, scale: 0.9 },
   visible: {
     opacity: 1,
@@ -61,27 +61,16 @@ const formVariants = {
   },
 }
 
-// Variantes para los campos del formulario
-const fieldVariants = {
+const fieldBaseVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
-  visible: (index: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: index * 0.1,
-      duration: 0.6,
-      type: "spring",
-      stiffness: 120,
-    },
-  }),
   focus: {
     scale: 1.02,
     transition: { duration: 0.2 },
   },
 }
 
-// Variantes para la información de contacto
-const contactInfoVariants = {
+
+const contactInfoVariants: Variants = {
   hidden: { opacity: 0, x: -50, scale: 0.9 },
   visible: {
     opacity: 1,
@@ -96,14 +85,13 @@ const contactInfoVariants = {
   },
 }
 
-// Variantes para los elementos de contacto
-const contactItemVariants = {
+const contactItemVariants: Variants = {
   hidden: { opacity: 0, x: -30 },
-  visible: (index: number) => ({
+  visible: (i) => ({
     opacity: 1,
     x: 0,
     transition: {
-      delay: index * 0.2,
+      delay: (i as number) * 0.2,
       duration: 0.6,
       type: "spring",
       stiffness: 120,
@@ -116,14 +104,13 @@ const contactItemVariants = {
   },
 }
 
-// Variantes para redes sociales
-const socialVariants = {
+const socialVariants: Variants = {
   hidden: { opacity: 0, scale: 0 },
-  visible: (index: number) => ({
+  visible: (i) => ({
     opacity: 1,
     scale: 1,
     transition: {
-      delay: index * 0.1,
+      delay: (i as number) * 0.1,
       duration: 0.5,
       type: "spring",
       stiffness: 200,
@@ -157,15 +144,15 @@ export default function Contact() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    try {
-      // Crear el enlace mailto
-      const subject = encodeURIComponent(`Contacto desde portafolio - ${formData.name}`)
-      const body = encodeURIComponent(`
-Nombre: ${formData.name}
-Email: ${formData.email}
+        try {
+            // Crear el enlace mailto
+            const subject = encodeURIComponent(`Contacto desde portafolio - ${formData.name}`)
+            const body = encodeURIComponent(`
+        Nombre: ${formData.name}
+        Email: ${formData.email}
 
-Mensaje:
-${formData.message}
+        Mensaje:
+        ${formData.message}
       `)
 
       const mailtoLink = `mailto:tu-email@ejemplo.com?subject=${subject}&body=${body}`
@@ -188,7 +175,8 @@ ${formData.message}
         status: "error",
         duration: 5000,
         isClosable: true,
-      })
+    })
+    console.log(error)
     } finally {
       setIsSubmitting(false)
     }
@@ -460,7 +448,7 @@ ${formData.message}
                 <VStack spacing={6}>
                   <MotionBox
                     custom={0}
-                    variants={fieldVariants}
+                    variants={fieldBaseVariants}
                     initial="hidden"
                     whileInView="visible"
                     whileFocus="focus"
@@ -484,7 +472,7 @@ ${formData.message}
 
                   <MotionBox
                     custom={1}
-                    variants={fieldVariants}
+                    variants={fieldBaseVariants}
                     initial="hidden"
                     whileInView="visible"
                     whileFocus="focus"
@@ -509,7 +497,7 @@ ${formData.message}
 
                   <MotionBox
                     custom={2}
-                    variants={fieldVariants}
+                    variants={fieldBaseVariants}
                     initial="hidden"
                     whileInView="visible"
                     whileFocus="focus"
@@ -535,7 +523,7 @@ ${formData.message}
 
                   <MotionBox
                     custom={3}
-                    variants={fieldVariants}
+                    variants={fieldBaseVariants}
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true }}
