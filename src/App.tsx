@@ -1,35 +1,46 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+"use client"
 
-function App() {
-  const [count, setCount] = useState(0)
+import { ChakraProvider } from "@chakra-ui/react"
+import { useState, useEffect } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import theme from "./theme"
+import LoadingScreen from "./components/LoadingScreen"
+import Header from "./components/Header"
+import Technologies from "./components/Technologies"
+import Projects from "./components/Projects"
+import Certifications from "./components/Certifications"
+import Experience from "./components/Experience"
+import Contact from "./components/Contact"
+import Navigation from "./components/Navigation"
+
+export default function Portfolio() {
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false)
+    }, 2500)
+
+    return () => clearTimeout(timer)
+  }, [])
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <ChakraProvider theme={theme}>
+      <AnimatePresence mode="wait">
+        {isLoading ? (
+          <LoadingScreen key="loading" />
+        ) : (
+          <motion.div key="content" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
+            <Navigation />
+            <Header />
+            <Technologies />
+            <Projects />
+            <Certifications />
+            <Experience />
+            <Contact />
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </ChakraProvider>
   )
 }
-
-export default App
