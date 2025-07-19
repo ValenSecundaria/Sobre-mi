@@ -38,6 +38,16 @@ const workExperience: WorkExperience[] = [
   //    "Desarrollo de funcionalidades para plataforma web. Participación en code reviews y implementación de mejores prácticas de desarrollo.",
   //  technologies: ["JavaScript", "HTML5", "CSS3", "Git"],
   //},
+  {
+    title: "Desarrollador Full Stack",
+    company: "Freelance",
+    location: "Remoto",
+    period: "Junio 2025 - Presente",
+    type: "Freelance",
+    description:
+      "Desarrollo de una aplicacion particular para un cliente, de forma freelance.",
+    technologies: ["React", "Node.js", "Next", "PostgreSQL", "TypeScript", "Prisma"],
+  }
 ]
 
 const education: Education[] = [

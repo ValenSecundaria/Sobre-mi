@@ -26,7 +26,7 @@ const projects = [
       "Plataforma de comercio electrónico completa con carrito de compras, sistema de pagos , panel de administración, uso y proovedor de API's externas.",
     technologies: ["React","TypeScript","Node.js", "Next", "PostgreSQL", "Prisma"],
     githubUrl: "https://github.com/ValenSecundaria/Tienda-River",
-    liveUrl: "https://proyecto-2-gemetro-didier-c6ni.vercel.app/",
+    liveUrl: "https://proyecto-2-gemetro-didier-14py.vercel.app/",
     image: "river-logo.png",
   },
   {
@@ -37,6 +37,13 @@ const projects = [
     githubUrl: "https://github.com/ValenSecundaria/BurgerXplosion",
     liveUrl: "https://burgerxplosion-1.onrender.com",
     image: "/icon.ico",
+  },
+  {
+    title: "Sistema de manejo de ventas, control de stock y pedidos",
+    description:
+      "Sitio web construido de forma particular para un cliente y hecho con Next.js y Chakra UI.",
+    technologies: ["Next.js", "Chakra UI", "TypeScript", "React"],
+    githubUrl: "https://sistemaejecventas.vercel.app/",
   }
 ]
 
