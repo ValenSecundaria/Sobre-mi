@@ -43,7 +43,8 @@ const projects = [
     description:
       "Sitio web construido de forma particular para un cliente y hecho con Next.js y Chakra UI.",
     technologies: ["Next.js", "Chakra UI", "TypeScript", "React"],
-    githubUrl: "https://sistemaejecventas.vercel.app/",
+    githubUrl:"https://github.com/ValenSecundaria/Sistema-pedidos",
+    liveUrl: "https://sistemaejecventas.vercel.app/",
   }
 ]
 
