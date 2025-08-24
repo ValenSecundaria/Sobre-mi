@@ -103,7 +103,7 @@ const technologies: TechCategory[] = [
         icon: SiCplusplus,
         color: "#A8B9CC",
         gradient: "linear-gradient(135deg, #A8B9CC 0%, #C0C0C0 100%)",
-        level: "Básico",
+        level: "Intermedio",
       },
       {
         name: "Pascal",
@@ -121,6 +121,64 @@ const technologies: TechCategory[] = [
       },
     ],
   },
+  {
+    category: "Linux & Programación de Sistemas",
+    icon: FaTools,
+    gradient: "linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%)",
+    description: "Conocimientos de bajo nivel en Linux, programación concurrente y sistemas operativos",
+    items: [
+      {
+        name: "Procesos (fork, exec, wait)",
+        icon: null,
+        color: "#2c5364",
+        gradient: "linear-gradient(135deg, #0f2027, #2c5364)",
+        level: "Avanzado",
+      },
+      {
+        name: "Threads (pthread)",
+        icon: null,
+        color: "#203a43",
+        gradient: "linear-gradient(135deg, #203a43, #2c5364)",
+        level: "Intermedio",
+      },
+      {
+        name: "Semáforos & Mutex",
+        icon: null,
+        color: "#0f2027",
+        gradient: "linear-gradient(135deg, #0f2027, #203a43)",
+        level: "Avanzado",
+      },
+      {
+        name: "Señales (signal, kill, sigaction)",
+        icon: null,
+        color: "#764ba2",
+        gradient: "linear-gradient(135deg, #764ba2, #667eea)",
+        level: "Intermedio",
+      },
+      {
+        name: "Pipes & Colas de mensajes",
+        icon: null,
+        color: "#11998e",
+        gradient: "linear-gradient(135deg, #11998e, #38ef7d)",
+        level: "Intermedio",
+      },
+      {
+        name: "Deadlocks & sincronización",
+        icon: null,
+        color: "#ff6a00",
+        gradient: "linear-gradient(135deg, #ff6a00, #ee0979)",
+        level: "Intermedio",
+      },
+      {
+        name: "Problemas clásicos (Prod-Cons, Filósofos...)",
+        icon: null,
+        color: "#fa709a",
+        gradient: "linear-gradient(135deg, #fa709a, #fee140)",
+        level: "Avanzado",
+      },
+    ],
+  },
+
   {
     category: "Frameworks & Librerías",
     icon: FaTools,
@@ -361,7 +419,7 @@ export default function Technologies() {
         <VStack spacing={16}>
           {technologies.map((category, categoryIndex) => (
             <MotionBox
-              key={category.category}
+              key={`${category.category}-${categoryIndex}`}
               w="100%"
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -437,7 +495,7 @@ export default function Technologies() {
               >
                 {category.items.map((tech, index) => (
                   <MotionBox
-                    key={tech.name}
+                    key={`${categoryIndex}-${tech.name ?? index}`}
                     initial={{
                       opacity: 0,
                       y: 30,
@@ -511,9 +569,8 @@ export default function Technologies() {
                               rotate: [0, -5, 5, 0],
                             }}
                             transition={{
-                              duration: 0.5,
-                              type: "spring",
-                              stiffness: 300,
+                              rotate: { type: "tween", duration: 0.6, ease: "easeInOut" },
+                              scale: { type: "spring", stiffness: 300, damping: 20 },
                             }}
                           >
                             {tech.icon ? (
@@ -542,7 +599,7 @@ export default function Technologies() {
                                 whileHover={{ rotate: 360 }}
                                 transition={{ duration: 0.5 }}
                               >
-                                {tech.name.charAt(0)}
+                                {typeof tech.name === "string" ? tech.name.charAt(0) : "?"}
                               </MotionBox>
                             )}
                           </MotionBox>

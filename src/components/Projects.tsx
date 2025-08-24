@@ -45,6 +45,7 @@ const projects = [
     technologies: ["Next.js", "Chakra UI", "TypeScript", "React"],
     githubUrl:"https://github.com/ValenSecundaria/Sistema-pedidos",
     liveUrl: "https://sistemaejecventas.vercel.app/",
+    image: "/icon-512.png",
   }
 ]
 
