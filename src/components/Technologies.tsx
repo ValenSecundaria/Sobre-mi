@@ -26,6 +26,7 @@ import {
   SiPrisma,
   SiAngular,
   SiCplusplus,
+  SiMongodb,
 } from "react-icons/si"
 import { motion } from "framer-motion"
 import type { IconType } from "react-icons"
@@ -249,6 +250,7 @@ const technologies: TechCategory[] = [
         gradient: "linear-gradient(135deg, #2D3748 0%, #4A5568 100%)",
         level: "Intermedio",
       },
+      { name: "MongoDB", icon: SiMongodb, color: "#47A248", gradient: "linear-gradient(135deg, #47A248 0%, #2ECC71 100%)", level: "Intermedio" },
     ],
   },
   {

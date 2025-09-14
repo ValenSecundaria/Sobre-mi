@@ -19,7 +19,16 @@ import { motion } from "framer-motion"
 
 const MotionBox = motion(Box)
 
-const projects = [
+type Project = {
+  title: string
+  description: string
+  technologies: string[]
+  githubUrl?: string
+  liveUrl?: string
+  image?: string
+}
+
+const projects: Project[] = [
   {
     title: "E-Commerce Full Stack",
     description:
@@ -46,7 +55,26 @@ const projects = [
     githubUrl:"https://github.com/ValenSecundaria/Sistema-pedidos",
     liveUrl: "https://sistemaejecventas.vercel.app/",
     image: "/icon-512.png",
-  }
+  },
+  // ← NUEVOS PROYECTOS
+  {
+    title: "Tetris (Angular)",
+    description:
+      "Recreación del clásico Tetris. Interacciones de teclado y lógica de rotación y caída de piezas.",
+    technologies: ["Angular", "TypeScript", "HTML5 Canvas", "Express", "Tailwind"],
+    githubUrl:"https://github.com/ValenSecundaria/Tetris",
+    liveUrl: "https://tetris-silk-five.vercel.app/",
+    image:"tetris.png",
+  },
+  {
+    title: "Pacman",
+    description:
+      "Versión web del juego clásico con laberinto, puntos y movimiento suave del jugador.",
+    technologies: ["JavaScript", "HTML5 Canvas", "CSS", "Angular", "Express", "Tailwind", "TypeScript"],
+    githubUrl:"https://github.com/ValenSecundaria/Pacman",
+    liveUrl: "https://pacmansito.vercel.app/",
+    image:"/pacman.png",
+  },
 ]
 
 export default function Projects() {
@@ -115,11 +143,13 @@ export default function Projects() {
                   </HStack>
 
                   <HStack spacing={3} w="100%">
-                    <Link href={project.githubUrl} isExternal flex="1">
-                      <Button size="sm" variant="outline" leftIcon={<Icon as={FaGithub} />} w="100%">
-                        Código
-                      </Button>
-                    </Link>
+                    {project.githubUrl && (
+                      <Link href={project.githubUrl} isExternal flex="1">
+                        <Button size="sm" variant="outline" leftIcon={<Icon as={FaGithub} />} w="100%">
+                          Código
+                        </Button>
+                      </Link>
+                    )}
                     {project.liveUrl && (
                       <Link href={project.liveUrl} isExternal flex="1">
                         <Button size="sm" colorScheme="brand" leftIcon={<Icon as={FaExternalLinkAlt} />} w="100%">
