@@ -16,6 +16,8 @@ import {
   FaCode,
   FaTools,
   FaProjectDiagram,
+  FaPhp,
+  FaNetworkWired
 } from "react-icons/fa"
 import {
   SiTypescript,
@@ -27,6 +29,8 @@ import {
   SiAngular,
   SiCplusplus,
   SiMongodb,
+  SiLaravel,
+  SiGraphql
 } from "react-icons/si"
 import { motion } from "framer-motion"
 import type { IconType } from "react-icons"
@@ -120,7 +124,15 @@ const technologies: TechCategory[] = [
         gradient: "linear-gradient(135deg, #74283C 0%, #A0522D 100%)",
         level: "Intermedio",
       },
-    ],
+    
+      {
+        name: "PHP",
+        icon: FaPhp,
+        color: "#777BB4",
+        gradient: "linear-gradient(135deg, #777BB4 0%, #8892BF 100%)",
+        level: "Básico",
+      },
+],
   },
   {
     category: "Linux & Programación de Sistemas",
@@ -221,8 +233,39 @@ const technologies: TechCategory[] = [
         gradient: "linear-gradient(135deg, #000000 0%, #404040 100%)",
         level: "Intermedio",
       },
+    
+      {
+        name: "Laravel",
+        icon: SiLaravel,
+        color: "#FF2D20",
+        gradient: "linear-gradient(135deg, #FF2D20 0%, #FF6B6B 100%)",
+        level: "Básico",
+      },
     ],
   },
+    {
+    category: "APIs & Arquitectura",
+    icon: FaNetworkWired,
+    gradient: "linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)",
+    description: "Diseño y consumo de APIs y estilos de arquitectura",
+    items: [
+      {
+        name: "GraphQL",
+        icon: SiGraphql,
+        color: "#E10098",
+        gradient: "linear-gradient(135deg, #E10098 0%, #FF6EC7 100%)",
+        level: "Bajo-Intermedio",
+      },
+      {
+        name: "Arquitectura de Microservicios",
+        icon: FaProjectDiagram,
+        color: "#0EA5E9",
+        gradient: "linear-gradient(135deg, #0EA5E9 0%, #22D3EE 100%)",
+        level: "Intermedio",
+      },
+    ],
+  },
+
   {
     category: "Bases de Datos & ORM",
     icon: FaDatabase,

@@ -15,7 +15,23 @@ const certifications = [
       "Certificación en fundamentos de computación cuántica, algoritmos cuánticos y mas.",
     credentialUrl: "/certificadoValenGemetro.pdf",
     skills: ["Qbits", "Algoritmos Cuánticos"],
-  } 
+  },
+  {
+    title: "Taller: Desarrollo de Gobierno Digital — Una Perspectiva Europea",
+    issuer: "Universidad Nacional del Sur — Dept. de Ciencias e Ingeniería de la Computación",
+    date: "2025",
+    description:
+      "Asistencia (4 h) al taller dictado por el Dr. Gonçalo Paiva Dias (Universidade de Aveiro) y la Dra. Elsa C. Estevez (UNS). Emitido en Bahía Blanca, el 12 de septiembre de 2025.",
+    credentialUrl: "/gobernanza-digital.pdf",
+    skills: [
+      "Gobierno Digital",
+      "Transformación Digital",
+      "Servicios Públicos Digitales",
+      "Políticas Públicas",
+      "Interoperabilidad"
+    ]
+  }
+
 ]
 
 export default function Certifications() {
