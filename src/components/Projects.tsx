@@ -30,10 +30,29 @@ type Project = {
 
 const projects: Project[] = [
   {
+    title: "DCICFlix - Microservicios",
+    description:
+      "Plataforma de streaming distribuida. Frontend React y orquestación de servicios en Node.js y Python (FastAPI). Comunicación asíncrona vía RabbitMQ, motor de recomendaciones con ML y despliegue en Docker.",
+    technologies: ["Microservicios", "RabbitMQ", "Docker", "React", "FastAPI", "Node.js", "MongoDB"],
+    githubUrl: "https://github.com/emalhaolautaro/proyecto-microservicios-dcicflix",
+    liveUrl: "#",
+    // Imagen genérica de tecnología/servidores desde Unsplash
+    image: "https://images.unsplash.com/photo-1558494949-efc02570fbc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+  },
+  {
+    title: "Predictor Mundial Full Stack",
+    description:
+      "Arquitectura moderna para aplicaciones analíticas y predicción de partidos. Frontend Next.js con Chakra/Bootstrap y Backend FastAPI (Python) para ML. Infraestructura orquestada con Docker y Nginx.",
+    technologies: ["Next.js", "FastAPI", "Python", "Docker", "Nginx", "Chakra UI"],
+    githubUrl: "https://github.com/ValenSecundaria/Predictor-de-Mundiales-Plataforma-Full-Stack.",
+    liveUrl: "#",
+    image: "/predictor.png",
+  },
+  {
     title: "E-Commerce Full Stack",
     description:
       "Plataforma de comercio electrónico completa con carrito de compras, sistema de pagos , panel de administración, uso y proovedor de API's externas.",
-    technologies: ["React","TypeScript","Node.js", "Next", "PostgreSQL", "Prisma"],
+    technologies: ["React", "TypeScript", "Node.js", "Next", "PostgreSQL", "Prisma"],
     githubUrl: "https://github.com/ValenSecundaria/Tienda-River",
     liveUrl: "https://proyecto-2-gemetro-didier-14py.vercel.app/",
     image: "river-logo.png",
@@ -48,32 +67,31 @@ const projects: Project[] = [
     image: "/icon.ico",
   },
   {
-    title: "Sistema de manejo de ventas, control de stock y pedidos",
+    title: "Sistema de manejo de ventas",
     description:
-      "Sitio web construido de forma particular para un cliente y hecho con Next.js y Chakra UI.",
+      "Sitio web construido de forma particular para un cliente y hecho con Next.js y Chakra UI. Control de stock y pedidos.",
     technologies: ["Next.js", "Chakra UI", "TypeScript", "React"],
-    githubUrl:"https://github.com/ValenSecundaria/Sistema-pedidos",
+    githubUrl: "https://github.com/ValenSecundaria/Sistema-pedidos",
     liveUrl: "https://sistemaejecventas.vercel.app/",
     image: "/icon-512.png",
   },
-  // ← NUEVOS PROYECTOS
   {
     title: "Tetris (Angular)",
     description:
       "Recreación del clásico Tetris. Interacciones de teclado y lógica de rotación y caída de piezas.",
     technologies: ["Angular", "TypeScript", "HTML5 Canvas", "Express", "Tailwind"],
-    githubUrl:"https://github.com/ValenSecundaria/Tetris",
+    githubUrl: "https://github.com/ValenSecundaria/Tetris",
     liveUrl: "https://tetris-silk-five.vercel.app/",
-    image:"tetris.png",
+    image: "tetris.png",
   },
   {
     title: "Pacman",
     description:
       "Versión web del juego clásico con laberinto, puntos y movimiento suave del jugador.",
     technologies: ["JavaScript", "HTML5 Canvas", "CSS", "Angular", "Express", "Tailwind", "TypeScript"],
-    githubUrl:"https://github.com/ValenSecundaria/Pacman",
+    githubUrl: "https://github.com/ValenSecundaria/Pacman",
     liveUrl: "https://pacmansito.vercel.app/",
-    image:"/pacman.png",
+    image: "/pacman.png",
   },
 ]
 
@@ -116,6 +134,8 @@ export default function Projects() {
                 _hover={{ shadow: "xl" }}
                 transition="all 0.3s"
                 h="100%"
+                display="flex"
+                flexDirection="column"
               >
                 <Image
                   src={project.image || "/placeholder.svg"}
@@ -125,7 +145,7 @@ export default function Projects() {
                   objectFit="cover"
                 />
 
-                <VStack p={6} align="start" spacing={4} h="calc(100% - 200px)">
+                <VStack p={6} align="start" spacing={4} flex="1">
                   <Heading size="md" color="gray.800">
                     {project.title}
                   </Heading>
@@ -134,7 +154,7 @@ export default function Projects() {
                     {project.description}
                   </Text>
 
-                  <HStack wrap="wrap" spacing={2}>
+                  <HStack wrap="wrap" spacing={2} pb={2}>
                     {project.technologies.map((tech) => (
                       <Badge key={tech} colorScheme="brand" variant="subtle" fontSize="xs">
                         {tech}
@@ -142,16 +162,16 @@ export default function Projects() {
                     ))}
                   </HStack>
 
-                  <HStack spacing={3} w="100%">
+                  <HStack spacing={3} w="100%" mt="auto">
                     {project.githubUrl && (
-                      <Link href={project.githubUrl} isExternal flex="1">
+                      <Link href={project.githubUrl} isExternal flex="1" style={{ textDecoration: 'none' }}>
                         <Button size="sm" variant="outline" leftIcon={<Icon as={FaGithub} />} w="100%">
                           Código
                         </Button>
                       </Link>
                     )}
-                    {project.liveUrl && (
-                      <Link href={project.liveUrl} isExternal flex="1">
+                    {project.liveUrl && project.liveUrl !== "#" && (
+                      <Link href={project.liveUrl} isExternal flex="1" style={{ textDecoration: 'none' }}>
                         <Button size="sm" colorScheme="brand" leftIcon={<Icon as={FaExternalLinkAlt} />} w="100%">
                           Demo
                         </Button>

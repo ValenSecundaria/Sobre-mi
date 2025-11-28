@@ -17,7 +17,9 @@ import {
   FaTools,
   FaProjectDiagram,
   FaPhp,
-  FaNetworkWired
+  FaNetworkWired,
+  FaVial, // Icono para Testing
+  FaRobot // Icono para Playwright (fallback)
 } from "react-icons/fa"
 import {
   SiTypescript,
@@ -29,8 +31,15 @@ import {
   SiAngular,
   SiCplusplus,
   SiMongodb,
-  SiLaravel,
-  SiGraphql
+
+  SiGraphql,
+  SiFastapi,
+  SiNginx,
+  SiBootstrap,
+  SiRabbitmq,    // Nuevo
+  SiSelenium,    // Nuevo
+  SiCypress,     // Nuevo
+  SiPostman      // Nuevo
 } from "react-icons/si"
 import { motion } from "framer-motion"
 import type { IconType } from "react-icons"
@@ -90,17 +99,17 @@ const technologies: TechCategory[] = [
         level: "Avanzado",
       },
       {
+        name: "Python", // Actualizado a Básico (25%)
+        icon: FaPython,
+        color: "#3776AB",
+        gradient: "linear-gradient(135deg, #3776AB 0%, #4B8BBE 100%)",
+        level: "Avanzado",
+      },
+      {
         name: "Java",
         icon: FaJava,
         color: "#007396",
         gradient: "linear-gradient(135deg, #007396 0%, #00A4CC 100%)",
-        level: "Intermedio",
-      },
-      {
-        name: "Python",
-        icon: FaPython,
-        color: "#3776AB",
-        gradient: "linear-gradient(135deg, #3776AB 0%, #4B8BBE 100%)",
         level: "Intermedio",
       },
       {
@@ -111,87 +120,14 @@ const technologies: TechCategory[] = [
         level: "Intermedio",
       },
       {
-        name: "Pascal",
-        icon: null,
-        color: "#6B73DB",
-        gradient: "linear-gradient(135deg, #6B73DB 0%, #8A2BE2 100%)",
-        level: "Intermedio",
-      },
-      {
-        name: "Prolog",
-        icon: null,
-        color: "#74283C",
-        gradient: "linear-gradient(135deg, #74283C 0%, #A0522D 100%)",
-        level: "Intermedio",
-      },
-    
-      {
         name: "PHP",
         icon: FaPhp,
         color: "#777BB4",
         gradient: "linear-gradient(135deg, #777BB4 0%, #8892BF 100%)",
         level: "Básico",
       },
-],
-  },
-  {
-    category: "Linux & Programación de Sistemas",
-    icon: FaTools,
-    gradient: "linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%)",
-    description: "Conocimientos de bajo nivel en Linux, programación concurrente y sistemas operativos",
-    items: [
-      {
-        name: "Procesos (fork, exec, wait)",
-        icon: null,
-        color: "#2c5364",
-        gradient: "linear-gradient(135deg, #0f2027, #2c5364)",
-        level: "Avanzado",
-      },
-      {
-        name: "Threads (pthread)",
-        icon: null,
-        color: "#203a43",
-        gradient: "linear-gradient(135deg, #203a43, #2c5364)",
-        level: "Intermedio",
-      },
-      {
-        name: "Semáforos & Mutex",
-        icon: null,
-        color: "#0f2027",
-        gradient: "linear-gradient(135deg, #0f2027, #203a43)",
-        level: "Avanzado",
-      },
-      {
-        name: "Señales (signal, kill, sigaction)",
-        icon: null,
-        color: "#764ba2",
-        gradient: "linear-gradient(135deg, #764ba2, #667eea)",
-        level: "Intermedio",
-      },
-      {
-        name: "Pipes & Colas de mensajes",
-        icon: null,
-        color: "#11998e",
-        gradient: "linear-gradient(135deg, #11998e, #38ef7d)",
-        level: "Intermedio",
-      },
-      {
-        name: "Deadlocks & sincronización",
-        icon: null,
-        color: "#ff6a00",
-        gradient: "linear-gradient(135deg, #ff6a00, #ee0979)",
-        level: "Intermedio",
-      },
-      {
-        name: "Problemas clásicos (Prod-Cons, Filósofos...)",
-        icon: null,
-        color: "#fa709a",
-        gradient: "linear-gradient(135deg, #fa709a, #fee140)",
-        level: "Avanzado",
-      },
     ],
   },
-
   {
     category: "Frameworks & Librerías",
     icon: FaTools,
@@ -206,18 +142,18 @@ const technologies: TechCategory[] = [
         level: "Avanzado",
       },
       {
-        name: "Angular",
-        icon: SiAngular,
-        color: "#DD0031",
-        gradient: "linear-gradient(135deg, #DD0031 0%, #C3002F 100%)",
-        level: "Intermedio",
-      },
-      {
         name: "Next.js",
         icon: SiNextdotjs,
         color: "#000000",
         gradient: "linear-gradient(135deg, #000000 0%, #434343 100%)",
         level: "Avanzado",
+      },
+      {
+        name: "FastAPI", // Actualizado a Básico (25%)
+        icon: SiFastapi,
+        color: "#009688",
+        gradient: "linear-gradient(135deg, #009688 0%, #00554e 100%)",
+        level: "Intermedio",
       },
       {
         name: "Node.js",
@@ -227,28 +163,84 @@ const technologies: TechCategory[] = [
         level: "Avanzado",
       },
       {
+        name: "Angular",
+        icon: SiAngular,
+        color: "#DD0031",
+        gradient: "linear-gradient(135deg, #DD0031 0%, #C3002F 100%)",
+        level: "Intermedio",
+      },
+      {
         name: "Express",
         icon: SiExpress,
         color: "#000000",
         gradient: "linear-gradient(135deg, #000000 0%, #404040 100%)",
         level: "Intermedio",
       },
-    
       {
-        name: "Laravel",
-        icon: SiLaravel,
-        color: "#FF2D20",
-        gradient: "linear-gradient(135deg, #FF2D20 0%, #FF6B6B 100%)",
+        name: "Bootstrap",
+        icon: SiBootstrap,
+        color: "#7952B3",
+        gradient: "linear-gradient(135deg, #7952B3 0%, #563d7c 100%)",
+        level: "Intermedio",
+      },
+    ],
+  },
+  {
+    category: "Testing & QA Automation", // Nueva Categoría
+    icon: FaVial,
+    gradient: "linear-gradient(135deg, #FF512F 0%, #DD2476 100%)",
+    description: "Aseguramiento de calidad y pruebas automatizadas",
+    items: [
+      {
+        name: "Cypress",
+        icon: SiCypress,
+        color: "#17202C",
+        gradient: "linear-gradient(135deg, #17202C 0%, #69D3A7 100%)",
+        level: "Básico",
+      },
+      {
+        name: "Selenium",
+        icon: SiSelenium,
+        color: "#43B02A",
+        gradient: "linear-gradient(135deg, #43B02A 0%, #00C627 100%)",
+        level: "Básico",
+      },
+      {
+        name: "Playwright",
+        icon: FaRobot,
+        color: "#2EAD33",
+        gradient: "linear-gradient(135deg, #2EAD33 0%, #45BA4B 100%)",
+        level: "Básico",
+      },
+      {
+        name: "Postman + Newman",
+        icon: SiPostman,
+        color: "#FF6C37",
+        gradient: "linear-gradient(135deg, #FF6C37 0%, #FF9D70 100%)",
         level: "Básico",
       },
     ],
   },
-    {
+  {
     category: "APIs & Arquitectura",
     icon: FaNetworkWired,
     gradient: "linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)",
     description: "Diseño y consumo de APIs y estilos de arquitectura",
     items: [
+      {
+        name: "Microservicios", // Actualizado a Básico (25%)
+        icon: FaProjectDiagram,
+        color: "#0EA5E9",
+        gradient: "linear-gradient(135deg, #0EA5E9 0%, #22D3EE 100%)",
+        level: "Intermedio",
+      },
+      {
+        name: "RabbitMQ", // Nuevo
+        icon: SiRabbitmq,
+        color: "#FF6600",
+        gradient: "linear-gradient(135deg, #FF6600 0%, #FF9933 100%)",
+        level: "Básico",
+      },
       {
         name: "GraphQL",
         icon: SiGraphql,
@@ -256,16 +248,8 @@ const technologies: TechCategory[] = [
         gradient: "linear-gradient(135deg, #E10098 0%, #FF6EC7 100%)",
         level: "Bajo-Intermedio",
       },
-      {
-        name: "Arquitectura de Microservicios",
-        icon: FaProjectDiagram,
-        color: "#0EA5E9",
-        gradient: "linear-gradient(135deg, #0EA5E9 0%, #22D3EE 100%)",
-        level: "Intermedio",
-      },
     ],
   },
-
   {
     category: "Bases de Datos & ORM",
     icon: FaDatabase,
@@ -287,13 +271,19 @@ const technologies: TechCategory[] = [
         level: "Avanzado",
       },
       {
+        name: "MongoDB",
+        icon: SiMongodb,
+        color: "#47A248",
+        gradient: "linear-gradient(135deg, #47A248 0%, #2ECC71 100%)",
+        level: "Básico"
+      },
+      {
         name: "Prisma",
         icon: SiPrisma,
         color: "#2D3748",
         gradient: "linear-gradient(135deg, #2D3748 0%, #4A5568 100%)",
         level: "Intermedio",
       },
-      { name: "MongoDB", icon: SiMongodb, color: "#47A248", gradient: "linear-gradient(135deg, #47A248 0%, #2ECC71 100%)", level: "Intermedio" },
     ],
   },
   {
@@ -310,6 +300,13 @@ const technologies: TechCategory[] = [
         level: "Avanzado",
       },
       {
+        name: "Docker",
+        icon: FaDocker,
+        color: "#2496ED",
+        gradient: "linear-gradient(135deg, #2496ED 0%, #0DB7ED 100%)",
+        level: "Básico",
+      },
+      {
         name: "GitHub",
         icon: FaGithub,
         color: "#181717",
@@ -317,10 +314,10 @@ const technologies: TechCategory[] = [
         level: "Avanzado",
       },
       {
-        name: "Docker",
-        icon: FaDocker,
-        color: "#2496ED",
-        gradient: "linear-gradient(135deg, #2496ED 0%, #0DB7ED 100%)",
+        name: "Nginx",
+        icon: SiNginx,
+        color: "#009639",
+        gradient: "linear-gradient(135deg, #009639 0%, #006622 100%)",
         level: "Básico",
       },
     ],
@@ -332,39 +329,18 @@ const technologies: TechCategory[] = [
     description: "Diseño y arquitectura de sistemas",
     items: [
       {
-        name: "Diagramas ER",
-        icon: null,
-        color: "#4A90E2",
-        gradient: "linear-gradient(135deg, #4A90E2 0%, #357ABD 100%)",
-        level: "Avanzado",
-      },
-      {
-        name: "Diagramas de Clases",
+        name: "Diagramas UML",
         icon: null,
         color: "#7B68EE",
         gradient: "linear-gradient(135deg, #7B68EE 0%, #9370DB 100%)",
         level: "Avanzado",
       },
       {
-        name: "Diagramas de Secuencia",
+        name: "Diagramas ER",
         icon: null,
-        color: "#20B2AA",
-        gradient: "linear-gradient(135deg, #20B2AA 0%, #48CAE4 100%)",
-        level: "Intermedio",
-      },
-      {
-        name: "Casos de Uso",
-        icon: null,
-        color: "#FF6347",
-        gradient: "linear-gradient(135deg, #FF6347 0%, #FF7F50 100%)",
-        level: "Intermedio",
-      },
-      {
-        name: "Redes de Petri",
-        icon: null,
-        color: "#32CD32",
-        gradient: "linear-gradient(135deg, #32CD32 0%, #7CB342 100%)",
-        level: "Básico",
+        color: "#4A90E2",
+        gradient: "linear-gradient(135deg, #4A90E2 0%, #357ABD 100%)",
+        level: "Avanzado",
       },
     ],
   },
@@ -377,8 +353,10 @@ const getLevelColor = (level: string) => {
       return "green"
     case "Intermedio":
       return "blue"
+    case "Bajo-Intermedio":
+      return "cyan"
     case "Básico":
-      return "orange"
+      return "purple" // Color diferente para distinguir el nivel aprendizaje
     default:
       return "gray"
   }
@@ -387,7 +365,7 @@ const getLevelColor = (level: string) => {
 export default function Technologies() {
   return (
     <Box id="technologies" py={20} bg="gray.50" position="relative" overflow="hidden">
-      {/* Elementos decorativos de fondo mejorados */}
+      {/* Elementos decorativos de fondo */}
       <MotionBox
         position="absolute"
         top="5%"
@@ -428,7 +406,7 @@ export default function Technologies() {
       />
 
       <Container maxW="1400px">
-        {/* Header mejorado */}
+        {/* Header */}
         <MotionBox
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -454,8 +432,7 @@ export default function Technologies() {
             viewport={{ once: true }}
           >
             <Text fontSize="xl" color="gray.600" maxW="800px" mx="auto" lineHeight="1.8">
-              Herramientas y tecnologías que utilizo para crear experiencias digitales excepcionales y soluciones
-              robustas.
+              Herramientas y tecnologías que utilizo para crear experiencias digitales excepcionales.
             </Text>
           </MotionBox>
         </MotionBox>
@@ -592,22 +569,8 @@ export default function Technologies() {
                         _groupHover={{ opacity: 1 }}
                       />
 
-                      {/* Efecto de brillo en hover */}
-                      <MotionBox
-                        position="absolute"
-                        top="-50%"
-                        left="-50%"
-                        width="200%"
-                        height="200%"
-                        background="linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent)"
-                        initial={{ x: "-100%" }}
-                        whileHover={{ x: "100%" }}
-                        transition={{ duration: 0.6 }}
-                      />
-
                       <VStack spacing={4} position="relative" zIndex={1} align="start">
                         <HStack spacing={4} w="100%">
-                          {/* Icono con efecto mejorado */}
                           <MotionBox
                             whileHover={{
                               scale: 1.2,
@@ -668,7 +631,7 @@ export default function Technologies() {
                           </VStack>
                         </HStack>
 
-                        {/* Barra de progreso visual */}
+                        {/* Barra de progreso visual ajustada */}
                         <Box w="100%" h="3px" bg="gray.200" borderRadius="full" overflow="hidden">
                           <MotionBox
                             h="100%"
@@ -676,7 +639,12 @@ export default function Technologies() {
                             borderRadius="full"
                             initial={{ width: "0%" }}
                             whileInView={{
-                              width: tech.level === "Avanzado" ? "90%" : tech.level === "Intermedio" ? "70%" : "50%",
+                              // Lógica actualizada: Básico es 25%
+                              width: tech.level === "Avanzado" ? "90%"
+                                : tech.level === "Intermedio" ? "70%"
+                                  : tech.level === "Bajo-Intermedio" ? "40%"
+                                    : tech.level === "Básico" ? "25%"
+                                      : "20%",
                             }}
                             transition={{ duration: 1, delay: index * 0.1 + 0.5 }}
                             viewport={{ once: true }}
